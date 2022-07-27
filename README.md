@@ -40,8 +40,7 @@ Staff profile comprises: id, name, uuid, registration_date
 - set JDBC URL: to jdbc:h2:file:~/test
 - Copy SQL Script in patient-script.sql in the db folder in resources (/resources/db)
 - Run the script in the h2 console
-- TO SKIP last two steps, you can pick up the test.mv.db file in resources (/resources/db). It contains 100 patient records and an empty staff table 
-- run apis on 
+- run APIs
 
 ## POSTMAN and API Testing
 - Collection is in /resources/api folder (medical.postman_collection.json)
