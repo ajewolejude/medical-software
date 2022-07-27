@@ -35,7 +35,17 @@ Staff profile comprises: id, name, uuid, registration_date
 ## How to Run
 - clone application
 - Create test.mv.db file in your user home directory (if you used spring.datasource.url=jdbc:h2:file:~/test)
-- run MedicalSoftwareApplication class.
-- for test run StaffControllerTest class
+- run MedicalSoftwareApplication class. - for test run StaffControllerTest class
+- go to http://localhost:8080/h2-console/
+- set JDBC URL: to jdbc:h2:file:~/test
+- Copy SQL Script in patient-script.sql in the db folder in resources (/resources/db)
+- Run the script in the h2 console
+- TO SKIP last two steps, you can pick up the test.mv.db file in resources (/resources/db). It contains 100 patient records and an empty staff table 
+- run apis on 
 
+## POSTMAN and API Testing
+- Collection is in /resources/api folder (medical.postman_collection.json)
+- Run the POST staff API first (so as to have atleast one valid UUID)
+- Use UUID with other APIs 
+- As required by the document I received, if user enter invalid UUID. Then you are not authorized.
 
