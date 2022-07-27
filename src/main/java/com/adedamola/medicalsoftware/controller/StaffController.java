@@ -54,44 +54,6 @@ public class StaffController {
     }
 
 
-    // bonus method
-    @GetMapping("/{uuid}/last-visit")
-    public ResponseEntity<?> findByLastVisitDateBetween(@PathVariable("uuid") UUID uuid,
-                                                        @RequestParam(value = "startDate")
-                                                        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate,
-                                                        @RequestParam(value = "endDate")
-                                                        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date endDate) {
-
-        if (staffService.isUserPermitted(uuid)) {
-            List<Patient> patientList = patientService.findByLastVisitDateBetween(startDate, endDate);
-            patientList.forEach(patient -> {
-                patient.setLast_visit_date(patient.getLastVisitDate());
-            });
-            if (patientList.size() > 0) {
-                return new ResponseEntity<>(patientList, HttpStatus.OK);
-            } else {
-                return ResponseEntity.ok()
-                        .body("No patient profiles");
-            }
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body("You are not authorized to make updates.");
-        }
-    }
-
-    @DeleteMapping("/{uuid}/last-visit/delete")
-    public ResponseEntity<?> deleteByLastVisitDateBetween(@PathVariable("uuid") UUID uuid, @RequestParam(value = "startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate,
-                                                          @RequestParam(value = "endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date endDate) {
-
-        if (staffService.isUserPermitted(uuid)) {
-            patientService.deleteByLastVisitDateBetween(startDate, endDate);
-            return new ResponseEntity<>("deleted", HttpStatus.OK);
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body("You are not authorized to make updates.");
-        }
-    }
-
 
     @GetMapping("/{uuid}/patient/age")
     public ResponseEntity<?> findAllPatientLessThanOrEqualToTwo(@PathVariable("uuid") UUID uuid) {
@@ -99,6 +61,9 @@ public class StaffController {
         if (staffService.isUserPermitted(uuid)) {
             //since age limit is 2
             List<Patient> patientList = patientService.findAllPatientLessThanEqual(2);
+            patientList.forEach(patient -> {
+                patient.setLast_visit_date(patient.getLastVisitDate());
+            });
             if (patientList.size() > 0) {
                 return new ResponseEntity<>(patientList, HttpStatus.OK);
             } else {
@@ -120,6 +85,9 @@ public class StaffController {
         if (staffService.isUserPermitted(uuid)) {
             //since age limit is 2
             List<Patient> patientList = patientService.findAllPatientLessThanEqual(age);
+            patientList.forEach(patient -> {
+                patient.setLast_visit_date(patient.getLastVisitDate());
+            });
             if (patientList.size() > 0) {
                 return new ResponseEntity<>(patientList, HttpStatus.OK);
             } else {
@@ -185,5 +153,48 @@ public class StaffController {
                     .body("You are not authorized to make updates.");
         }
     }
+
+    // bonus method
+    @GetMapping("/{uuid}/patient/last-visit")
+    public ResponseEntity<?> findByLastVisitDateBetween(@PathVariable("uuid") UUID uuid,
+                                                        @RequestParam(value = "startDate")
+                                                        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate,
+                                                        @RequestParam(value = "endDate")
+                                                        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date endDate) {
+
+        if (staffService.isUserPermitted(uuid)) {
+            List<Patient> patientList = patientService.findByLastVisitDateBetween(startDate, endDate);
+            patientList.forEach(patient -> {
+                patient.setLast_visit_date(patient.getLastVisitDate());
+            });
+            if (patientList.size() > 0) {
+                return new ResponseEntity<>(patientList, HttpStatus.OK);
+            } else {
+                return ResponseEntity.ok()
+                        .body("No patient profiles");
+            }
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body("You are not authorized to make updates.");
+        }
+    }
+
+    @DeleteMapping("/{uuid}/last-visit/delete")
+    public ResponseEntity<?> deleteByLastVisitDateBetween(@PathVariable("uuid") UUID uuid,
+                                                          @RequestParam(value = "startDate")
+                                                          @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate,
+                                                          @RequestParam(value = "endDate")
+                                                          @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date endDate) {
+
+        if (staffService.isUserPermitted(uuid)) {
+            patientService.deleteByLastVisitDateBetween(startDate, endDate);
+            return new ResponseEntity<>("deleted", HttpStatus.OK);
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body("You are not authorized to make updates.");
+        }
+    }
+
+
 
 }

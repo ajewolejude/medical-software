@@ -1,0 +1,263 @@
+{
+	"info": {
+		"_postman_id": "1a395c40-fddf-486b-bc2e-cf10b1018a45",
+		"name": "MEDICAL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "staff create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Jayyy\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/staff/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"staff",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "staff update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Kin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/staff/abbaae1f-d035-4785-bd20-0b08c85af468/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"staff",
+						"abbaae1f-d035-4785-bd20-0b08c85af468",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "staff get patient up to an age",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Jude\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/staff/abbaae1f-d035-4785-bd20-0b08c85af468/patient/age",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"staff",
+						"abbaae1f-d035-4785-bd20-0b08c85af468",
+						"patient",
+						"age"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "staff delete patient between dates",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/staff/abbaae1f-d035-4785-bd20-0b08c85af468/last-visit/delete?startDate=2021-01-01&endDate=2021-12-31",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"staff",
+						"abbaae1f-d035-4785-bd20-0b08c85af468",
+						"last-visit",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2021-01-01"
+						},
+						{
+							"key": "endDate",
+							"value": "2021-12-31"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "staff get one patient",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/staff/abbaae1f-d035-4785-bd20-0b08c85af468/2/patient",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"staff",
+						"abbaae1f-d035-4785-bd20-0b08c85af468",
+						"2",
+						"patient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "staff export one patient",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/staff/5489b1b7-cb1c-4ae3-a3a0-66d1aa5ea67c/2/patient/exportCSV",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"staff",
+						"5489b1b7-cb1c-4ae3-a3a0-66d1aa5ea67c",
+						"2",
+						"patient",
+						"exportCSV"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "staff get patient between dates",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/staff/abbaae1f-d035-4785-bd20-0b08c85af468/patient/last-visit?startDate=2021-01-01&endDate=2021-12-31",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"staff",
+						"abbaae1f-d035-4785-bd20-0b08c85af468",
+						"patient",
+						"last-visit"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2021-01-01"
+						},
+						{
+							"key": "endDate",
+							"value": "2021-12-31"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
